@@ -30,7 +30,8 @@ whoti=who_ti %>%
 ## summarize :
 whoti %>%
   group_by(country)%>%
-  summarise(total_cases=sum(cases,na.rm = TRUE))
+  summarise(total_cases=sum(cases,na.rm = TRUE))%>%
+arrange(desc(total_cases))
 
 
 whoti %>%
@@ -51,4 +52,5 @@ whoti %>%
   ggplot(aes(x = sex, y = total_cases, fill = sex)) +
   geom_col() +
   labs(title = "Cases by Sex")
+
 
